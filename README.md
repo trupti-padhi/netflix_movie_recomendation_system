@@ -1,88 +1,53 @@
-# netflix_movie_recomendation_system
-To ensure an optimal user experience and prevent subscriber churn, it is essential for Netflix, the world's leading online streaming service provider with over 220 million subscribers as of 2022, to effectively cluster the shows on their platform..
+Netflix_movie_recomendation_system
+Introduction:
+With more than 83 million subscribers and presence in more than 190 countries, Netflix is the most popular Internet television network in the world. Its users watch more than 125 million hours of TV and movie content daily, including original series, documentaries, and feature films. On almost any screen that is linked to the Internet, members can watch as much as they want, whenever and wherever. Without interruptions or obligations, members can play, pause, and resume watching at any time.
 
-Table of Content
-Problem Statement
-Objective
-Dataset
-Data Pipeline
-Project Structure
-Conclusion
-Problem Statement
-The goal of this project is to analyze the Netflix catalog of movies and TV shows, which was sourced from the third-party search engine Flixable, and group them into relevant clusters. This will aid in enhancing the user experience and prevent subscriber churn for the world's largest online streaming service provider, Netflix, which currently boasts over 220 million subscribers as of 2022-Q2. The dataset, which includes movies and TV shows as of 2019, will be analyzed to uncover new insights and trends in the rapidly growing world of streaming entertainment.
+Problem statement
+This dataset consists of tv shows and movies available on Netflix as of 2019. The dataset is collected from Flexible which is a third-party Netflix search engine.
 
-Objective
-The objective of this project is to organize the Netflix shows into distinct clusters, where the shows within a cluster are alike and the shows in different clusters are dissimilar to one another.
+In 2018, they released an interesting report which shows that the number of TV shows on Netflix has nearly tripled since 2010. The streaming service’s number of movies has decreased by more than 2,000 titles since 2010, while its number of TV shows has nearly tripled. It will be interesting to explore what all other insights can be obtained from the same dataset.
 
-Dataset
-The dataset used in this project is sourced from Flixable, a third-party Netflix search engine. The data includes information on all movies and TV shows available on the streaming platform as of 2019, with a total of 7787 records and 12 attributes. Each attribute provides specific information about the movie or TV show. For more information on the dataset, please visit the Kaggle website at https://www.kaggle.com/datasets/sambhajizambre/netflix-movies-and-tv-shows-clustering?select=netflix_titles.csv.
+Integrating this dataset with other external datasets such as IMDB ratings, rotten tomatoes can also provide many interesting findings.
 
-Data Pipeline
-Know Your Data: The first step in this project was to examine the various features of the dataset, understand the structure of the data and identify any patterns or trends. We looked at the shape of the data, the data types of each feature, and a statistical summary.
-Exploratory Data Analysis: We conducted an exploratory analysis of the data to identify patterns and dependencies, and to draw conclusions that would be useful for further processing.
-Data Cleaning: We checked for duplicated values in the dataset and then addressed any null values and outliers by imputing empty strings and dropping some of the null rows.
-Textual Data Preprocessing: We used techniques such as stop word removal, punctuation removal, conversion to lowercase, stemming, tokenization, and word vectorization to prepare the textual data for clustering. We also used Principal Component Analysis (PCA) to handle the curse of dimensionality.
-Cluster Implementation: We used K-Means and Agglomerative Hierarchical clustering algorithms to cluster the movies and determine the optimal number of clusters.
-Content-Based Recommendation System: We built a content-based recommendation system using the similarity matrix obtained from cosine similarity, which will provide the user with 10 recommendations based on the type of movie/show they have watched.
-Project Structure
-├── README.md
-├── Dataset 
-│   ├── [NETFLIX MOVIES AND TV SHOWS CLUSTERING.csv](https://github.com/Navneet2409/netflix-movies-and-tv-shows-clustering/files/10660309/NETFLIX.MOVIES.AND.TV.SHOWS.CLUSTERING.csv)
-├── Problem Statement
-│
-├── Understanding Data
-│
-├── EDA
-│   ├── Numeric & Categoric features
-│   ├── Univariate Analysis
-│   ├── Bivariate Analysis
-│   ├── Multivariate Analysis
-├──Data Cleaning
-│   ├── Duplicated values
-│   ├── NaN/Missing values
-│   ├── Treating Outlier 
-│
-├── Textual Data Preprocessing
-│   ├── Clustering Attributes
-|   ├── Removing Stopwords
-|   ├── Lowercasing words
-|   ├── Removing Punctuation
-|   ├── Stemming
-│       ├── Snowball Stemmer
-|   ├── Word Vectorization
-|       ├── TF-IDF (Term Frequency - Inverse Document Frequency)
-|   ├── Dimenssionality Reduction
-|       ├── PCA (Principle Component Analysis)
-│
-├── Model Building
-|   ├── Clustering Implemention
-|       ├── K-Means Clustering
-|           ├── Elbow Method
-|           ├── Silhoutte Score Analysis
-|       ├── Agglomerative Hierarchical Clustering
-|           ├── Dendogram
-├── Content Based Recommendation System
-|
-│   
-├── Report
-├── Presentation
-├── Result
-└── Reference
-Conclusion
-In this project, we tackled a text clustering problem in which we had to categorize and group Netflix shows into specific clusters in such a way that shows in the same cluster are similar to one another and shows in different clusters are not.
+Data Description
+Show_id : Unique ID for every Movie / Tv Show
 
-- There were approximately 7787 records and 11 attributes in the dataset.
-- We started by working on the missing values in the dataset and conducting exploratory data analysis (EDA).
-- It was discovered that Netflix hosts more movies than television shows on its platform, and the total number of shows added to Netflix is expanding at an 
-exponential rate. Additionally, most of the shows were made in the United States.
-- The attributes were chosen as the basis for the clustering of the data: cast, country, genre, director, rating, and description The TFIDF vectorizer was 
-used to tokenize, preprocess, and vectorize the values in these attributes.
-- 10000 attributes in total were created by TFIDF vectorization.
-- The problem of dimensionality was dealt with through the use of Principal Component Analysis (PCA). Because 3000 components were able to account for more than 
-80% of the variance, the total number of components was limited to 3000.
-- Utilizing the K-Means Clustering algorithm, we first constructed clusters, and the optimal number of clusters was determined to be 6. The elbow method and 
-Silhouette score analysis were used to get this.
-- The Agglomerative clustering algorithm was then used to create clusters, and the optimal number of clusters was determined to be 7. This was obtained after 
-visualizing the dendrogram.
-- The similarity matrix generated by applying cosine similarity was used to construct a content-based recommender system. The user will receive ten 
-recommendations from this recommender system based on the type of show they watched.
+Type : Identifier - A Movie or TV Show
+
+Title : Title of the Movie / Tv Show
+
+Director : Director of the Movie
+
+Cast : Actors involved in the movie / show
+
+Country : Country where the movie / show was produced
+
+Date_added : Date it was added on Netflix
+
+Release_year : Actual Releaseyear of the movie / show
+
+Rating : TV Rating of the movie / show
+
+Duration : Total Duration - in minutes or number of seasons
+
+Listed_in : Genres
+
+Description: The Summary description
+
+
+Summary and Conclusion:
+In this project, we tackled a text clustering issue where we had to categorize Netflix shows into specific clusters such that the shows within a cluster are similar to one another and the shows in different clusters are dissimilar to one another.
+
+Once our dataset is loaded, and then we search for duplicates and missing values. No duplicate values were discovered, and any missing values were used to fill them in. In our dataset, the director column contains the most missing entries, followed by cast, country, and date_added. The string "unknown" is used to fill missing values in the director and country columns, "no cast" is used fill in the cast column, and the mode value is used to fill missing values in the rating column. the records that had null entries in the "date_added" column were deleted.
+
+31% of Netflix's content is television shows, while 69% of it is movie show, demonstrating that movie shows have greater content. TV-MA, which stands for "Mature Audience," is the most frequently used classification for movie and tv shows, followed by TV-14, which stands for "Younger Audience." Since the number of movie shows is higher than the number of TV shows, movie shows receive the highest rating when compared to TV shows, from this we can say people like to watch movie show than compare to tv shows.
+
+Over the years, Netflix has added more shows to its platform. Most movies were released in 2017 and 2018. Most television shows were broadcast in 2019 and 2020. The covid-19-induced lockdowns that stopped the production of shows may be to blame for the decline in the number of movies added in the year 2020. There are fewer movies uploaded this year because the Netflix data we have only extends through 2021.
+
+Netflix's movie show library is expanding much more quickly than its TV show library. It looks that Netflix has prioritised adding more movie material over TV shows. The growth of movies has been significantly more pronounced than that of TV shows.More content is released over the Christmas season (October, November, December, and January). There are more movies released each month compared to TV shows.Documentaries are the most popular Netflix category, followed by stand-up comedy, dramas, and foreign films. Kids TV is the most well-liked Netflix TV shows.
+
+The majority of movies durations last between 90 and 120 minutes. Most tv shows have just one season. The lengthiest average runtimes are found in NC-17 rated movies. The average duration of movies with a TV-Y rating is the shortest. The geograph visualisations show that the United States and India are the two countries that produce the most content.
+
+The director, cast, country, genre, and description are chosen as the attributes to cluster the data based on. These attributes' values underwent tokenization, preprocessing, and vectorization using TFIDF vectorizer. A total of 20000 characteristics were produced through TFIDF vectorization. For the purpose of overcoming the dimensionality curse, we applied Principal Component Analysis (PCA). 4000 components were able to capture more than 80% of variance.
+
+The ideal number of clusters was found to be six when we first created clusters using the k-means clustering technique. The elbow method and Silhouette score analysis were used to get this result.The Agglomerative clustering technique was then used to create clusters, with 12 being the optimum number. The dendrogram was visualised to achieve this.The similarity matrix acquired after utilising cosine similarity was used to construct a content-based recommender system. Based on the sort of show the user viewed, this recommender system will provide them with 10 recommendations.
